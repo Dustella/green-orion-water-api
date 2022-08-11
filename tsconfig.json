@@ -1,0 +1,11 @@
+{
+  "buildOptions": {
+    "target": "esnext"
+  },
+  "compilerOptions": {
+    "module": "ESNext",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "target": "ESNext"
+  }
+}
