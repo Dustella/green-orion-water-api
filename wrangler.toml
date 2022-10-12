@@ -1,0 +1,4 @@
+name = "green-orion-water-api"
+main = "src/index.ts"
+compatibility_date = "2022-10-11"
+# node_compat = true

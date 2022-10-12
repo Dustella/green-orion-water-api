@@ -6,13 +6,13 @@ export interface UserInfo {
 }
 
 export interface TempCode {
-  code: number;
+  code: string;
   createdAt: string;
   expires: string;
 }
 
 export interface PermenantCode {
-  code: number;
+  code: string;
   school: string;
   expires: string;
   push: string;
