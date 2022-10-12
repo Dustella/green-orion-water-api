@@ -1,5 +1,5 @@
-import { createCors } from "itty-cors";
-import router from "./router";
+// import { createCors } from 'itty-cors'
+import router from './router'
 
 export interface Env {
   // Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
@@ -12,9 +12,9 @@ export interface Env {
   // MY_BUCKET: R2Bucket;
 }
 
-const { corsify } = createCors({ origins: ['*'],maxAge: 86400, methods: ['GET', 'POST', 'OPTIONS'] ,headers: []});
+// const { corsify } = createCors({ origins: ['*'], maxAge: 86400, methods: ['GET', 'POST', 'OPTIONS'], headers: [] })
 
 export default {
   fetch: (request: Request, env: Env) =>
     router.handle(request, env),
-};
+}

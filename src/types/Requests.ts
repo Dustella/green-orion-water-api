@@ -1,3 +1,3 @@
 export interface IRequest extends Request {
-    token? : string
+  token?: string
 }
