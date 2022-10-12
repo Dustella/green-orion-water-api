@@ -1,7 +1,7 @@
 export interface UserInfo {
   phone: string
   name: string
-  money: string
+  balance: string
   school: string
 }
 

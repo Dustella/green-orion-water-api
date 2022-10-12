@@ -1,4 +1,4 @@
-import { parsePermenantCode, parseTempCode } from '../parser/parsePCode'
+import { parsePermenantCode, parseTempCode } from '../utils/parseCode'
 import type { IRequest } from '../types/Requests'
 
 export const genTempCode = async (request: IRequest) => {
