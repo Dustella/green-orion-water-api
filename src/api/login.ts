@@ -11,7 +11,7 @@ const login = async (request: Request): Promise<Response> => {
     `https://app.njchengshan.cn//water/app/login/checkLogin.action?loginname=${name}&password=${pass}`,
   )
   const data = (await res.json()) as { success: boolean; message: string }
-  return new Response(data.success ? data.message : '')
+  return new Response(JSON.stringify(data))
 }
 
 /**
@@ -24,7 +24,8 @@ const getToken = async (request: Request) => {
     `https://app.njchengshan.cn/water/app/login/loginByToken.action?TOKEN=${auth}`,
   )
   const token = res.headers.get('set-cookie')
-  return new Response(JSON.stringify({ success: true, token }))
+  const success = (await res.json() as { success: boolean }).success
+  return new Response(JSON.stringify({ success, token }))
 }
 
 export { login, getToken }
