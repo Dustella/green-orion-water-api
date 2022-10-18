@@ -16,5 +16,8 @@ export interface Env {
 
 export default {
   fetch: (request: Request, env: Env) =>
-    router.handle(request, env),
+    router.handle(request, env).then((resp) => {
+      resp.headers.set('Access-Control-Allow-Origin', '*')
+      return resp
+    }),
 }
