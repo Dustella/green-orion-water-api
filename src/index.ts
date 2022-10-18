@@ -16,7 +16,9 @@ const { corsify } = createCors({ origins: ['*'], maxAge: 86400, methods: ['GET',
 
 export default {
   fetch: (request: Request, env: Env) =>
-    router.handle(request, env).then(corsify).then((resp) => {
+    router.handle(request, env).catch(() => new Response(JSON.stringify({
+      success: false,
+    }))).then(corsify).then((resp) => {
       resp.headers.set('Access-Control-Allow-Origin', '*')
       return resp
     }),
