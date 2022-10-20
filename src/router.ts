@@ -2,6 +2,7 @@ import { createCors } from 'itty-cors'
 import { Router } from 'itty-router'
 import { fetchPermenantCode, fetchTempCode, genTempCode } from './api/fetchCode'
 import { fetchInfo } from './api/fetchInfo'
+import { fetchRecords } from './api/fetchRecords'
 import { getToken, login } from './api/login'
 import { auth } from './middleware/auth'
 
@@ -17,6 +18,7 @@ router
   .post('/user/code/temp', genTempCode)
   .get('/user/code/permenant', fetchPermenantCode)
   .get('/user/info', fetchInfo)
+  .get('/user/records/consume', fetchRecords)
   .post('/user/code/permenant')
 
 export default router
