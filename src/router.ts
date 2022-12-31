@@ -1,13 +1,12 @@
-import { createCors } from 'itty-cors'
 import { Router } from 'itty-router'
 import { fetchPermenantCode, fetchTempCode, genTempCode } from './api/fetchCode'
 import { fetchInfo } from './api/fetchInfo'
 import { fetchRecords } from './api/fetchRecords'
 import { getToken, login } from './api/login'
 import { auth } from './middleware/auth'
+import { preflight } from './middleware/cors'
 
 const router = Router()
-const { preflight } = createCors({ origins: ['*'], maxAge: 86400, methods: ['GET', 'POST', 'OPTIONS'], headers: [] })
 
 router
   .get('/', () => new Response('Hello world!'))

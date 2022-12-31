@@ -1,7 +1,7 @@
-import type { IRequest } from '../types/Requests'
+import type { IIRequest } from '../types/Requests'
 import type { ConsumeRecord as Record } from '../types/Records'
 
-export const fetchRecords = async (req: IRequest) => {
+export const fetchRecords = async (req: IIRequest) => {
   const auth = req.token
   // https://app.njchengshan.cn/water/app/customer/AppConsumRecord/loadRecordList.action
   const res = await fetch(

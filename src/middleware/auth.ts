@@ -1,8 +1,7 @@
-import type { IRequest } from '../types/Requests'
+import type { IIRequest } from '../types/Requests'
 
-export const auth = async (request: IRequest): Promise<void> => {
+export const auth = async (request: IIRequest): Promise<void> => {
   // get authoirzation header
   const auth = request.headers.get('Authorization')
-
   request.token = auth
 }

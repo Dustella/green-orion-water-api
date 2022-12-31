@@ -1,7 +1,7 @@
 import { parsePermenantCode, parseTempCode } from '../utils/parseCode'
-import type { IRequest } from '../types/Requests'
+import type { IIRequest } from '../types/Requests'
 
-export const genTempCode = async (request: IRequest) => {
+export const genTempCode = async (request: IIRequest) => {
   const auth = request.token
   const res = await fetch(
     'https://app.njchengshan.cn/water/app/customer/getFetchWaterCode.action',
@@ -16,7 +16,7 @@ export const genTempCode = async (request: IRequest) => {
 }
 
 // https://app.njchengshan.cn/water/app/customer/AppCustomerCodeMng/list.action
-export const fetchPermenantCode = async (request: IRequest) => {
+export const fetchPermenantCode = async (request: IIRequest) => {
   const auth = request.token
   const res = await fetch(
     'https://app.njchengshan.cn/water/app/customer/AppCustomerCodeMng/list.action',
@@ -30,7 +30,7 @@ export const fetchPermenantCode = async (request: IRequest) => {
   return new Response(JSON.stringify(code))
 }
 
-export const fetchTempCode = async (request: IRequest) => {
+export const fetchTempCode = async (request: IIRequest) => {
   const auth = request.token
   const res = await fetch(
     'https://app.njchengshan.cn/water/app/customer/fecthWater.action',
@@ -43,4 +43,3 @@ export const fetchTempCode = async (request: IRequest) => {
   const code = await parseTempCode(res)
   return new Response(JSON.stringify(code))
 }
-

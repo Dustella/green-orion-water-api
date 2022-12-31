@@ -1,4 +1,3 @@
-import { createCors } from 'itty-cors'
 import router from './router'
 
 export interface Env {
@@ -12,14 +11,11 @@ export interface Env {
   // MY_BUCKET: R2Bucket;
 }
 
-const { corsify } = createCors({ origins: ['*'], maxAge: 86400, methods: ['GET', 'POST', 'OPTIONS'], headers: [] })
-
 export default {
   fetch: (request: Request, env: Env) =>
     router.handle(request, env).catch(() => new Response(JSON.stringify({
       success: false,
-    }))).then(corsify).then((resp) => {
-      resp.headers.set('Access-Control-Allow-Origin', '*')
+    }))).then((resp) => {
       return resp
     }),
 }

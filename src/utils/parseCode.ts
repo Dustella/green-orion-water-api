@@ -11,14 +11,21 @@ const parseInfo = async (htmlstring: Response): Promise<UserInfo> => {
   const { keys, values } = await transform(htmlstring)
   keys.forEach((item, key) => {
     switch (item) {
-      case '手机号码':
-        res.phone = values[key]; break
-      case '姓名':
-        res.name = values[key]; break
-      case '绑定学校':
-        res.school = values[key]; break
+      case '手机号码':{
+        res.phone = values[key]
+        break
+      }
+      case '姓名':{
+        res.name = values[key]
+        break
+      }
+      case '绑定学校':{
+        res.school = values[key]
+        break
+      }
       case '账户余额':
-        res.balance = values[key]; break
+        res.balance = values[key]
+        break
     }
   })
   return res
@@ -61,13 +68,17 @@ const parsePermenantCode = async (
   keys.forEach((item, key) => {
     switch (item) {
       case '绑定学校':
-        res.school = values[key]; break
+        res.school = values[key]
+        break
       case '固定码':
-        res.code = values[key]; break
+        res.code = values[key]
+        break
       case '推送类型':
-        res.push = values[key]; break
+        res.push = values[key]
+        break
       case '截止时间':
-        res.expires = values[key]; break
+        res.expires = values[key]
+        break
     }
   })
   return res
